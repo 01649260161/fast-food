@@ -1,0 +1,166 @@
+<?php
+
+namespace App\Model\Admin;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
+
+class MenuItemModel extends Model
+{
+    //
+    public $table = "menu_items";
+
+
+    public static function outputlevelcategoris($input_categories,&$out_categories,$parent_id = 0,$lvl = 0){
+        if(count($input_categories)>0){
+            foreach ($input_categories as $key => $category){
+                $category =(array)$category;
+                if($category['parent_id']==$parent_id){
+                    $category['level'] = $lvl;
+                    $out_categories[]=(array)$category;
+                    unset($input_categories[$key]);
+
+                    $new_parent_id = $category['id'];
+                    $new_level = $lvl+1;
+
+                    self::outputlevelcategoris($input_categories,$out_categories,$new_parent_id,$new_level);
+                }
+            }
+
+        }
+    }
+
+    public static function getMenuItemRecursive(){
+        $result = array();
+        $source = MenuItemModel::all()->toArray();
+        self::outputlevelcategoris($source,$result);
+
+
+
+        return $result;
+    }
+
+    public static function getTypeOfMenuItem(){
+        $type = array();
+        $type[1] = 'Shop Category';
+        $type[2] = 'Shop product';
+        $type[3] = 'Content Category';
+        $type[4] = 'Content Post';
+        $type[5] = 'Content Page';
+        $type[6] = 'Content Tag';
+        $type[7] = 'Custom Link';
+
+        return $type;
+    }
+
+    public static function getMenuItemsByHeader(){
+        $menu_header = DB::table('menus')->where('location',1)->first();
+        if (isset($menu_header->id)){
+            $source = DB::table('menu_items')->where('menu_id',$menu_header->id)->get();
+            $result = array();
+            self::outputlevelcategoris($source,$result);
+
+
+
+        }else{
+            $result =array();
+        }
+
+        return $result;
+    }
+    public static function getMenuItemsByFooter1(){
+        $menu_header = DB::table('menus')->where('location',2)->first();
+        if (isset($menu_header->id)){
+            $menu_items_header = DB::table('menu_items')->where('menu_id',$menu_header->id)->get()->toArray();
+
+        }else{
+            $menu_items_header =array();
+        }
+        return $menu_items_header;
+    }
+    public static function getMenuItemsByFooter2(){
+        $menu_header = DB::table('menus')->where('location',3)->first();
+        if (isset($menu_header->id)){
+            $menu_items_header = DB::table('menu_items')->where('menu_id',$menu_header->id)->get();
+
+        }else{
+            $menu_items_header =array();
+        }
+        return $menu_items_header;
+    }
+    public static function getMenuItemsByFooter3(){
+        $menu_header = DB::table('menus')->where('location',4)->first();
+        if (isset($menu_header->id)){
+            $menu_items_header = DB::table('menu_items')->where('menu_id',$menu_header->id)->get();
+
+        }else{
+            $menu_items_header =array();
+        }
+        return $menu_items_header;
+    }
+
+
+    public static function buildMenuHTML($input_categories, &$html, $parent_id = 0, $lvl = 1) {
+        if (count($input_categories) > 0) {
+            if ($lvl == 1) {
+                $html .= "<ul class=\"menu mt-2 ml-auto\">";
+            } elseif ($lvl == 2) {
+                $html .= "<ul class=\"inner-ul menu-content\">";
+            } else {
+                // Không hiện
+            }
+
+            foreach ($input_categories as $key => $category) {
+                if ($category['parent_id'] == $parent_id) {
+                    $category['level'] = $lvl;
+
+                    if ($category['type'] == 7) {
+                        $menu_link = $category['link'];
+                    } else {
+                        $menu_link = url($category['link']);
+                    }
+
+                    if ($lvl == 1) {
+                        $li_class = (isset($category['total']) && ($category['total'] > 0)) ? 'dropdown ' : '';
+                        $html .= '<li class="'.$li_class.'"><a href="'.$menu_link.'" target="_blank"><label class="toggle">';
+                    } elseif ($lvl == 2) {
+                        $html .= '<li><a href="'.$menu_link.'" target="_blank"><i class="fa fa-angle-right" aria-hidden="true"></i>';
+                    }
+                    if ($lvl == 1 || $lvl == 2) {
+                        $html .= $category['name'];
+                    }
+                    unset($input_categories[$key]);
+
+                    $new_parent_id = $category['id'];
+
+                    if ($lvl == 1 && (isset($category['total']) && ($category['total'] > 0))) {
+                        $html .= '<b class="caret"></b>';
+                    }
+
+                    $new_level = $lvl + 1;
+                    self::buildMenuHTML($input_categories, $html, $new_parent_id, $new_level);
+
+                    if ($lvl == 1) {
+                        $html .= '</label></a></li>';
+                    } elseif ($lvl == 2) {
+                        $html .= '</a></li>';
+                    } else {
+
+                    }
+                }
+            }
+            if ($lvl == 1) {
+                $html .= "</ul>";
+            } elseif ($lvl == 2) {
+                $html .= "</ul><div class=\"clearfix\"></div>";
+            } else {
+                // Không hiện
+            }
+        }
+    }
+    public static function getMenuUlLi($source){
+        $html_menu='';
+        self::buildMenuHTML($source,$html_menu);
+        return $html_menu;
+    }
+
+}
