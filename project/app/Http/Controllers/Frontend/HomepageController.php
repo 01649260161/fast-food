@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Model\Front\BannerModel;
 use App\Model\Front\ShopCategoryModel;
+use App\Model\Front\ReviewModel;
 use App\Model\Front\ShopProductModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Admin\ContactModel;
 
 class HomepageController extends Controller
 {
@@ -34,6 +36,21 @@ class HomepageController extends Controller
         }
 
         $data['homepage_category'] = $homepage_category;
+
+
+        $last_review = ReviewModel::get();
+        
+        if(count($last_review) == 0){
+            $data['last_review'] = $last_review;
+        }else{
+            $last_review = $last_review[count($last_review)-1];
+            $data['last_review'] = $last_review;
+        }
+        
+        
+
+        $contacts = ContactModel::get();
+        $data['contacts'] = $contacts;
 
         return view('frontend.homepages.index',$data);
     }
