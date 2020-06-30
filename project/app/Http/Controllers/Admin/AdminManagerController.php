@@ -6,6 +6,7 @@ use App\Model\AdminModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 
 class AdminManagerController extends Controller
@@ -30,8 +31,9 @@ class AdminManagerController extends Controller
     }
     public function create(){
         /*
-                 * Đây là biến truyền từ Controller Xuống View
-                 * */
+        * Đây là biến truyền từ Controller Xuống View
+        * */
+        
         $data = array();
 
 
@@ -55,56 +57,44 @@ class AdminManagerController extends Controller
         return view('admin.content.users.delete',$data);
     }
     public function update(Request $request,$id){
-        /*$validatedData = $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'slug' => 'required',
-            'images' => 'required',
-            //'author_id' => 'required',
-            //'view' => 'required',
-            'intro' => 'required',
+            'email' => 'required',
+            'password' => 'required|max:100',
         ]);
         $input = $request->all();
 
-        $item = ContentTagModel::find($id);
+        $item = AdminModel::find($id);
 
         $item->name = $input['name'];
-        $item->slug = $input['slug'];
-        $item->images = $input['images'];
-        $item->intro = $input['intro'];
-        $item->author_id = isset($input['author_id'])?$input['author_id']:0;
-        $item->view = isset($input['view'])?$input['view']:0;
-
-
+        $item->email = $input['email'];
+        $item->password = Hash::make($input['password']);
         $item->save();
 
-        return redirect('/admin/content/tag');*/
+        return redirect('/admin/users');
     }
     public function store(Request $request){
         $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'slug' => 'required',
-            'images' => 'required',
-            'intro' => 'required',
+            'email' => 'required',
+            'password' => 'required|max:100',
         ]);
         $input = $request->all();
 
         $item = new AdminModel();
 
         $item->name = $input['name'];
-        $item->slug = $input['slug'];
-        $item->images = $input['images'];
-        $item->intro = $input['intro'];
-        $item->author_id = isset($input['author_id'])?$input['author_id']:0;
-        $item->view = isset($input['view'])?$input['view']:0;
+        $item->email = $input['email'];
+        $item->password = Hash::make($input['password']);
         $item->save();
 
         return redirect('/admin/users');
     }
     public function destroy($id){
-        /*$item = ContentTagModel::find($id);
+        $item = AdminModel::find($id);
 
         $item->delete();
 
-        return redirect('/admin/content/tag');*/
+        return redirect('/admin/users');
     }
 }
