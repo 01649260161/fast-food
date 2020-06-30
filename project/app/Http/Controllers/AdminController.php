@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Model\AdminModel;
+use App\Model\Admin\ShopOrderModel;
+use App\Model\Admin\ShopProductModel;
+use App\Model\Admin\NewlettersModel;
+use App\Model\Admin\ContentPostModel;
+// use App\Model\UserModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -15,7 +21,20 @@ class AdminController extends Controller
     //
     //Phương thức trả về view khi đăng nhập admin thành công
     public function index(){
-        return view('admin.dashboard');
+
+        
+        $items = DB::table('orders')->get();
+        $items1 = DB::table('shop_product')->get();
+        $items2 = DB::table('newsletters')->get();
+        $items3 = DB::table('content_post')->get();
+
+        $data = array();
+        $data['orders'] = $items;
+        $data['products'] = $items1;
+        $data['newsletters'] = $items2;
+        $data['content_post'] = $items3;
+
+        return view('admin.dashboard',$data);
     }
     //Phương thức trả ve view dùng để đăng kí tài khoản admin
     public function create(){
@@ -41,5 +60,7 @@ class AdminController extends Controller
 
         return redirect()->route('admin.auth.login');
     }
+
+
 
 }

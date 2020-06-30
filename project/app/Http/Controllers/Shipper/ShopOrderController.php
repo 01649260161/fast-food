@@ -100,10 +100,10 @@ class ShopOrderController extends Controller
         return redirect('/shipper/shop/order');
     }
     public function success($id){
-        Mail::send('frontend.payment.paymentsuccess1',
-            function($message){
-                $message->to('tranminhhien130398@gmail.com')->subject('Đã Gửi Hàng Thành Công!');
-            });
+        // Mail::send('frontend.payment.paymentsuccess1',
+        //     function($message){
+        //         $message->to('tranminhhien130398@gmail.com')->subject('Đã Gửi Hàng Thành Công!');
+        //     });
         $item = ShopOrderModel::find($id);
         $item->status = 3;
         $item->save();
@@ -157,11 +157,11 @@ class ShopOrderController extends Controller
 
         $emails_id[] = $emails[0]->customer_email;
 
-        Mail::send('frontend.payment.paymentsuccess1', array('order_id'=>$id), function($message) use ($emails_id)
-        {
-            $message->to($emails_id)->subject('Đã Gửi Hàng Thành Công!');
+        // Mail::send('frontend.payment.paymentsuccess1', array('order_id'=>$id), function($message) use ($emails_id)
+        // {
+        //     $message->to($emails_id)->subject('Đã Gửi Hàng Thành Công!');
 
-        });
+        // });
 
 
         /*if (Mail::send('frontend.payment.paymentsuccess1', array('order_id'=>$id), function($message) use ($emails_id)
@@ -207,10 +207,10 @@ class ShopOrderController extends Controller
 
 
         $emails_id[] = $emails[0]->customer_email;
-        Mail::send('frontend.payment.paymentdelete', array('reason'=>$emails[0]->reason), function($message) use ($emails_id)
-        {
-            $message->to($emails_id)->subject('Đơn Hàng Đã Được Hủy!');
-        });
+        // Mail::send('frontend.payment.paymentdelete', array('reason'=>$emails[0]->reason), function($message) use ($emails_id)
+        // {
+        //     $message->to($emails_id)->subject('Đơn Hàng Đã Được Hủy!');
+        // });
 
         return redirect('/shipper/shop/order/list');
     }
