@@ -23,6 +23,8 @@ class CreateMenuItems extends Migration
             $table->string('desc');
             $table->integer('parent_id')->default(0);
             $table->integer("menu_id");
+            $table->integer('sort')->default(0);
+            $table->integer('total')->default(0);
             $table->timestamps();
         });
     }

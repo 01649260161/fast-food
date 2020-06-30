@@ -1,8 +1,11 @@
 @extends('admin.layouts.glance')
 
 @section('content')
+
+    
     <section class="wrapper">
-        <!-- //market-->
+
+        
         <div class="market-updates">
             <div class="col-md-3 market-update-gd">
                 <div class="market-update-block clr-block-2">
@@ -10,9 +13,9 @@
                         <i class="fa fa-eye"> </i>
                     </div>
                     <div class="col-md-8 market-update-left">
-                        <h4>Visitors</h4>
-                        <h3>13,500</h3>
-                        <p>Other hand, we denounce</p>
+                        <h4>Bài viết</h4>
+                        <h3>{{count($content_post)}}</h3>
+                        <p>Tổng tất cả bài viết đã đăng</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -23,9 +26,9 @@
                         <i class="fa fa-users" ></i>
                     </div>
                     <div class="col-md-8 market-update-left">
-                        <h4>Users</h4>
-                        <h3>1,250</h3>
-                        <p>Other hand, we denounce</p>
+                        <h4>Lượt đăng ký</h4>
+                        <h3>{{count($newsletters)}}</h3>
+                        <p>Tổng đã lượt đăng ký</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -36,9 +39,9 @@
                         <i class="fa fa-usd"></i>
                     </div>
                     <div class="col-md-8 market-update-left">
-                        <h4>Sales</h4>
-                        <h3>1,500</h3>
-                        <p>Other hand, we denounce</p>
+                        <h4>Sản phẩm</h4>
+                        <h3>{{count($products)}}</h3>
+                        <p>Tổng sản phẩm đang bán</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -50,8 +53,8 @@
                     </div>
                     <div class="col-md-8 market-update-left">
                         <h4>Orders</h4>
-                        <h3>1,500</h3>
-                        <p>Other hand, we denounce</p>
+                        <h3>{{count($orders)}}</h3>
+                        <p>Tổng đơn hàng đã đặt</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>

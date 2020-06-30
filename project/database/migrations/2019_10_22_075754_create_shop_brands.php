@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContentPost extends Migration
+class CreateShopBrands extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateContentPost extends Migration
      */
     public function up()
     {
-        Schema::create('content_post', function (Blueprint $table) {
+        Schema::create('shop_brands', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('slug');
-            $table->string('images');
-            $table->string('intro');
-            $table->string('desc');
-            $table->integer('author_id');
-            $table->integer('view');
-            $table->integer('cat_id');
+            $table->string('image');
+            $table->string('link');
+            $table->text('intro');
+            $table->text('desc');;
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ class CreateContentPost extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('content_post');
+        Schema::dropIfExists('shop_brands');
     }
 }

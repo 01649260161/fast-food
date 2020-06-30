@@ -1,9 +1,9 @@
 @extends('admin.layouts.glance')
 @section('title')
-    Quản Trị Tag
+    Quản Trị Admin
 @endsection
 @section('content')
-    <h1 style="padding-top: 100px">Thêm Mới Tag</h1>
+    <h1 style="padding-top: 100px">Thêm Mới Admin</h1>
     <div class="row">
         <div class="form-three widget-shadow">
             @if ($errors->any())
@@ -15,7 +15,7 @@
                     </ul>
                 </div>
             @endif
-            <form class="form-horizontal" name="category" action="{{ url('admin/content/tag') }}" method="post">
+            <form class="form-horizontal" name="category" action="{{ url('admin/users') }}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên</label>
@@ -26,35 +26,28 @@
                         <p class="help-block">Your help text!</p>
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Slug</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-8">
-                        <input type="text" name="slug" class="form-control" value ="{{old("slug")}}" id="focusedinput" placeholder="Default Input">
+                        <input type="text" name="email" class="form-control" value ="{{old("email")}}" id="focusedinput" placeholder="Default Input">
                     </div>
                     <div class="col-sm-2">
                         <p class="help-block">Your help text!</p>
                     </div>
                 </div>
+
+
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Images</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">Password </label>
                     <div class="col-sm-8">
-                        <span class="input-group-btn">
-                             <a id="lfm1" data-input="thumbnail1" data-preview="holder1" class="lfm-btn btn btn-primary">
-                               <i class="fa fa-picture-o"></i> Choose
-                             </a>
-                           </span>
-                        <input id="thumbnail1" class="form-control" type="text" name="images" value="{{old("images")}}" placeholder="Default Input">
-                        <img id="holder1"  style="margin-top:15px;max-height:100px;">
+                        <input type="text" name="password" class="form-control" value ="{{old("password")}}" id="focusedinput"  placeholder="Default Input">
+                    </div>
+                    <div class="col-sm-2">
+                        <p class="help-block">Your help text!</p>
                     </div>
                 </div>
 
-
-
-
-                <div class="form-group">
-                    <label for="txtarea1" class="col-sm-2 control-label textarea.mytinymce">Mô Tả Ngắn</label>
-                    <div class="col-sm-8"><textarea name="intro" id="txtarea1" cols="50" rows="4" class="form-control1 mytinymce">{{old("intro")}}</textarea></div>
-                </div>
 
 
                 <div class="col-sm-offset-2">

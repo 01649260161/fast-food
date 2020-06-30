@@ -5,9 +5,9 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a class="active" href="{{url('/admin')}}">
+                    <a class="" href="{{url('/admin')}}">
                         <i class="fa fa-dashboard"></i>
-                        <span>Dashboard</span>
+                        <span>Trang chủ</span>
                     </a>
                 </li>
 
@@ -17,15 +17,14 @@
                         <span>Shop</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{url('/admin/shop/category')}}">Category</a></li>
-                        <li><a href="{{url('/admin/shop/product')}}">Product</a></li>
-                        <li><a href="{{url('/admin/shop/order')}}">Order</a></li>
-                        <li><a href="{{url('/admin/shop/review')}}">Review</a></li>
-                        <li><a href="{{url('/admin/shop/customer')}}">Customer</a></li>
+                        <li><a href="{{url('/admin/shop/category')}}">Danh mục</a></li>
+                        <li><a href="{{url('/admin/shop/product')}}">Sản Phẩm</a></li>
+                        <li><a href="{{url('/admin/shop/order')}}">Đơn Hàng</a></li>
+                        <li><a href="{{url('/admin/shop/review')}}">Đánh giá</a></li>
+                        <li><a href="{{url('/admin/shop/customer')}}">Khách hàng</a></li>
                         <li><a href="{{url('/admin/shop/shipper')}}">Nhà Vận Chuyển</a></li>
-                        <li><a href="{{url('/admin/shop/seller')}}">Nhà Cung Cấp</a></li>
                         <li><a href="{{url('/admin/shop/brands')}}">Brands</a></li>
-                        <li><a href="{{url('/admin/shop/statistic')}}">Statistic</a></li>
+                        <!-- <li><a href="{{url('/admin/shop/statistic')}}">Statistic</a></li> -->
                     </ul>
                 </li>
 
@@ -33,7 +32,7 @@
                 <li class="sub-menu">
                     <a href="#">
                         <i class="fa fa-th"></i>
-                        <span>Content</span>
+                        <span>Nội dung</span>
                     </a>
                     <ul class="sub">
                         <li><a href="{{ url('/admin/content/category') }}"> Danh Mục</a></li>
@@ -49,11 +48,11 @@
                 <li class="sub-menu">
                     <a href="#">
                         <i class="fa fa-tasks"></i>
-                        <span>Menu</span>
+                        <span>Danh mục hiển thị</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{ url('/admin/menu') }}"> Menu</a></li>
-                        <li><a href="{{ url('/admin/menuitems') }}"> Menu Items</a></li>
+                        <li><a href="{{ url('/admin/menu') }}"> Danh mục cha</a></li>
+                        <li><a href="{{ url('/admin/menuitems') }}"> Danh mục con</a></li>
                     </ul>
                 </li>
 
@@ -63,7 +62,7 @@
                 <li class="sub-menu">
                     <a href="#">
                         <i class="fa fa-user"></i>
-                        <span>Admin</span>
+                        <span>Quản trị viên</span>
                     </a>
                     <ul class="sub">
                         <li><a href="{{ url('/admin/users') }}"> Quản Trị Viên</a></li>
@@ -76,10 +75,10 @@
                 <li class="sub-menu">
                     <a href="#">
                         <i class="fa fa-bar-chart-o"></i>
-                        <span>Media Manager</span>
+                        <span>Quản lý file</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{ url('/admin/media') }}"> Media Manager</a></li>
+                        <li><a href="{{ url('/admin/media') }}"> Quản lý file</a></li>
                     </ul>
                 </li>
 
@@ -89,10 +88,10 @@
                 <li class="sub-menu">
                     <a href="#">
                         <i class="fa fa-laptop"></i>
-                        <span>Global Setting</span>
+                        <span>Cài đặt</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{ url('/admin/config') }}"> Global Setting</a></li>
+                        <li><a href="{{ url('/admin/config') }}"> Cài đặt</a></li>
                     </ul>
                 </li>
 
@@ -101,10 +100,10 @@
                 <li class="sub-menu">
                     <a href="#">
                         <i class="fa fa-envelope"></i>
-                        <span>Newletters</span>
+                        <span>Email đăng ký</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{ url('/admin/newletters') }}">Newletters</a></li>
+                        <li><a href="{{ url('/admin/newletters') }}">Email đăng ký</a></li>
                     </ul>
                 </li>
 
@@ -112,22 +111,22 @@
                 <li class="sub-menu">
                     <a href="#">
                         <i class="fa fa-bank"></i>
-                        <span>Banners</span>
+                        <span>Ảnh nền</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{ url('/admin/banners') }}">Banners</a></li>
+                        <li><a href="{{ url('/admin/banners') }}">Ảnh nền</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="#">
                         <i class="fa fa-angellist"></i>
-                        <span>Contact</span>
+                        <span>Liên lạc</span>
                     </a>
                     <ul class="sub">
                         <li><a href="{{ url('/admin/contact') }}">Liên Hệ</a></li>
                     </ul>
                 </li>
-                <li class="sub-menu">
+                <!-- <li class="sub-menu">
                     <a href="#">
                         <i class="fa fa-android"></i>
                         <span>Email</span>
@@ -137,7 +136,7 @@
                         <li><a href="{{ url('/admin/email/draft') }}">Draft</a></li>
                         <li><a href="{{ url('/admin/email/send') }}">Send</a></li>
                     </ul>
-                </li>
+                </li> -->
             </ul>            </div>
         <!-- sidebar menu end-->
     </div>

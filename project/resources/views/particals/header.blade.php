@@ -40,11 +40,11 @@
                 <ul>
                     <li>
                         <span class="fas fa-phone-volume"></span>
-                        <p>+(000)123 4565 32</p>
+                        <p><?php echo "+ ". $fe_global_contact['phone'];?></p>
                     </li>
                     <li>
                         <span class="fas fa-envelope"></span>
-                        <p><a href="mailto:info@example.com">info@example1.com</a></p>
+                        <p><a href="mailto:<?php echo $fe_global_contact['email'];?>"><?php echo $fe_global_contact['email'];?></a></p>
                     </li>
                     <li>
                     </li>
@@ -54,7 +54,7 @@
         <div class="container-fluid">
             <div class="hedder-up row">
                 <div class="col-lg-3 col-md-3 logo-head">
-                    <h1><a class="navbar-brand" href="index.html">BURGER SPECIAL</a></h1>
+                    <h1><a class="navbar-brand" href="http://project-foods.local/">BURGER SPECIAL</a></h1>
                 </div>
                 <div class="col-lg-5 col-md-6 search-right">
                     <form action="{{url('/search')}}" class="form-inline my-lg-0" method="get">

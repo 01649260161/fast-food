@@ -54,6 +54,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </style>
 <body>
 <!-- mian-content -->
+<?php
+    // echo "<pre>";
+    // print_r($fe_global_contact);
+    // echo "</pre>";
+    // die;
+?>
 <?php $banner_main_location = isset($banner_main->image) ? asset($banner_main->image): ''?>
 <?php $sale1_banner_location = isset($sale1_banner->image) ? asset($sale1_banner->image) : ''?>
 <?php $sale2_banner_location = isset($sale2_banner->image) ? asset($sale2_banner->image) : ' '?>
@@ -131,7 +137,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                 </div>
                 <div class="middle-right mt-md-3 col-md-6 text-right">
-                    <h6><span class="fa fa-phone"></span> Order Now : 123456789</h6>
+                    <h6><span class="fa fa-phone"></span> Order Now : {{$fe_global_contact['phone']}}</h6>
                 </div>
             </div>
         </div>
@@ -382,7 +388,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="layer footer">
         <div class="container py-5">
             <div class="test-info text-center">
-                <h3 class="my-md-2 my-3">Jenifer Burns</h3>
+                <h3 class="my-md-2 my-3"><?php  echo isset($last_review->name)? $last_review->name:"HienTm";?></h3>
 
                 <ul class="list-unstyled w3ls-icons clients mb-md-4">
                     <li>
@@ -406,7 +412,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </a>
                     </li>
                 </ul>
-                <p><span class="fa fa-quote-left"></span> Lorem Ipsum has been the industry's standard since the 1500s. Praesent ullamcorper dui turpis.Nulla pellentesque mi non laoreet eleifend. Integer porttitor mollisar lorem, at molestie arcu pulvinar ut. <span class="fa fa-quote-right"></span></p>
+                <p><span class="fa fa-quote-left"></span><?php  echo isset($last_review->content)? $last_review->content:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam sit omnis, numquam dolorem veniam laudantium, est ratione mollitia nesciunt necessitatibus molestias nihil harum ipsum ea enim temporibus magnam cumque a?";?><span class="fa fa-quote-right"></span></p>
 
             </div>
         </div>
@@ -509,6 +515,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             </form>
         </div>
+        
         <ul class="list-unstyled row text-left mb-lg-5 mb-3">
             <li class="col-lg-4 adress-info">
                 <div class="row">
@@ -517,8 +524,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="col-md-9 text-left">
                         <h6>Location</h6>
-                        <p>The company name
-                            <br>Hà Nội City. </p>
+                        <p><?php echo $fe_global_contact['address']?></p>
                     </div>
                 </div>
             </li>
@@ -530,9 +536,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="col-md-9 text-left">
                         <h6>Email</h6>
-                        <a href="mailto:tranminhhien130398@gmail.com">tranminhhien130398@gmail.com</a>
-                        <br>
-                        <a href="mailto:tranminhhienaaa@gmail.com">tranminhhienaaa@gmail.com</a>
+                        <a href="mailto:tranminhhien130398@gmail.com"><?php echo $fe_global_contact['email']?></a>
                     </div>
                 </div>
             </li>
@@ -543,8 +547,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="col-md-9 text-left">
                         <h6>Phone Number</h6>
-                        <p>+ 1234567890</p>
-                        <p>+ 0987654321</p>
+                        <p><?php echo "+ ". $fe_global_contact['phone']?></p>
                     </div>
                 </div>
             </li>
@@ -562,10 +565,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <h2>
                         <a href="{{url('/')}}"><img src="{{asset($fe_global_setting['footer_logo'])}}" style="width: 40px;height: 40px" alt="">{{$fe_global_setting['web_name']}}</a>
                     </h2>
-                    <p class="my-3">Donec consequat sam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus</p>
-                    <p>
-                        Id quod possimusapien ut leo cursus rhoncus. Nullam dui mi, vulputate ac metus at, semper varius orci.
-                    </p>
+                    <?php echo $fe_global_contact['web_intro'];?>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-md-0 mt-5">
                     <div class="footer-w3pvt">
@@ -599,11 +599,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </p>
                         </div>
                         <div class="last-w3ls-contact my-2">
-                            <p>+ 456 123 7890</p>
+                            <p><?php echo "+ ". $fe_global_contact['phone']?></p>
                         </div>
                         <div class="last-w3ls-contact">
-                            <p>+ 90 nsequursu dsdesdc,
-                                <br>xxx Honey State 049436.</p>
+                            <p><?php echo $fe_global_contact['address']?></p>
                         </div>
                     </div>
                 </div>

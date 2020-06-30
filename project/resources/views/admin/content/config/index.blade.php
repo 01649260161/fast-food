@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên Trang Web</label>
                     <div class="col-sm-8">
-                        <input type="text" name="web_name" class="form-control1" id="focusedinput" value="{{$configs['web_name']}}" placeholder="Default Input">
+                        <input type="text" name="web_name" class="form-control" id="focusedinput" value="{{$configs['web_name']}}" placeholder="Default Input">
                     </div>
                     <div class="col-sm-2">
                         <p class="help-block">Your help text!</p>
@@ -82,7 +82,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var domain = "http://localhost/project_foods/project/public/laravel-filemanager";
+            var domain = "http://project-foods.local/laravel-filemanager";
             $('.lfm-btn').filemanager('image', {prefix: domain});
         })
     </script>

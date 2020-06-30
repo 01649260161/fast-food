@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShopCategory extends Migration
+class CreateReviews extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateShopCategory extends Migration
      */
     public function up()
     {
-        Schema::create('shop_category', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('slug');
-            $table->string('images');
-            $table->string('intro');
-            $table->string('desc');
+            $table->string('email');
+            $table->integer('product_id');
+            $table->string('content',1000);
+            $table->integer('star');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateShopCategory extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shop_category');
+        Schema::dropIfExists('reviews');
     }
 }

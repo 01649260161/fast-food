@@ -19,7 +19,6 @@
                     <th>Giá niêm yết</th>
                     <th>Giá bán</th>
                     <th>Tồn kho</th>
-                    <th>Người Bán</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -38,7 +37,6 @@
                         <td>{{number_format($product->priceCore)  }} VND</td>
                         <td>{{number_format($product->priceSale)  }} VND</td>
                         <td>{{ $product->stock }}</td>
-                        <td>{{ $product->name_seller }}</td>
                         <td>
                             <a href="{{ url('admin/shop/product/'.$product->id.'/edit') }}" class="btn btn-warning">Sửa</a>
                             <a href="{{ url('admin/shop/product/'.$product->id.'/delete ') }}" class="btn btn-danger">Xóa</a>

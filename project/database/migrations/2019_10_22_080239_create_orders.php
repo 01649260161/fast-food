@@ -24,6 +24,9 @@ class CreateOrders extends Migration
             $table->string('customer_country');
             $table->string('total_price');
             $table->string('status');
+            $table->string('user_order')->default('');
+            $table->string('shipper_user')->default('');
+            $table->string('reason')->default('');
             $table->timestamps();
         });
     }

@@ -28,8 +28,8 @@
                         <td>{{$shipper->name}}</td>
                         <td>{{$shipper->email}}</td>
                         <td>
-                            <a href="{{ url('admin/shipper/'.$shipper->id.'/edit') }}" class="btn btn-warning">Sửa</a>
-                            <a href="{{ url('admin/shipper/'.$shipper->id.'/delete') }}" class="btn btn-danger">Xóa</a>
+                            <a href="{{ url('admin/shop/shipper/'.$shipper->id.'/edit') }}" class="btn btn-warning">Sửa</a>
+                            <a href="{{ url('admin/shop/shipper/'.$shipper->id.'/delete') }}" class="btn btn-danger">Xóa</a>
                         </td>
 
                     </tr>

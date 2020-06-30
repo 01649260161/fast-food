@@ -1,4 +1,5 @@
 <!--subscribe-address-->
+
 <section class="subscribe">
     <div class="container-fluid">
         <div class="row">
@@ -8,17 +9,17 @@
             <div class="col-lg-6 col-md-6 address-w3l-right text-center">
                 <div class="address-gried ">
                     <span class="far fa-map"></span>
-                    <p>25478 Road St.121<br>USA New Hill
+                    <p><?php echo $fe_global_contact['address'];?>
                     <p>
                 </div>
                 <div class="address-gried mt-3">
                     <span class="fas fa-phone-volume"></span>
-                    <p> +(000)123 4565<br>+(010)123 4565</p>
+                    <p><?php echo "+ ". $fe_global_contact['phone'];?></p>
                 </div>
                 <div class=" address-gried mt-3">
                     <span class="far fa-envelope"></span>
-                    <p><a href="mailto:info@example.com">info@example1.com</a>
-                        <br><a href="mailto:info@example.com">info@example2.com</a>
+                    <p><a href="mailto:<?php echo $fe_global_contact['email'];?>"><?php echo $fe_global_contact['email'];?></a>
+
                     </p>
                 </div>
             </div>
@@ -82,7 +83,11 @@
                 <div class="register-form">
                     <form action="{{ route('login') }}" method="post">
                         @csrf
-                        <div class="fields-grid">
+                    
+                        @if(!empty(Auth::user()))
+                        <div>Bạn đã đăng nhập rồi !!!</div>
+                        @else
+                            <div class="fields-grid">
                             <div class="styled-input">
                                 <input type="email" placeholder="Your Email" name="email" required="">
                             </div>
@@ -91,6 +96,7 @@
                             </div>
                             <button type="submit" class="btn subscrib-btnn">Login</button>
                         </div>
+                        @endif
                     </form>
                 </div>
             </div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddLinkToBannersTable extends Migration
+class CreateBanners extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class AddLinkToBannersTable extends Migration
      */
     public function up()
     {
-        Schema::table('banners', function (Blueprint $table) {
-            //
+        Schema::create('banners', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->integer('location_id');
+            $table->string('image');
+            $table->text('intro');
+            $table->text('desc');
             $table->string('link');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +32,6 @@ class AddLinkToBannersTable extends Migration
      */
     public function down()
     {
-        Schema::table('banners', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('banners');
     }
 }

@@ -70,7 +70,7 @@
                                                         <a href="single.html">{{$product->name}}</a>
                                                     </h4>
                                                     <div class="grid-price mt-2">
-                                                        <span class="money ">{{$product->priceSale}}</span>
+                                                        <span class="money ">{{$product->priceSale}} VND</span>
                                                     </div>
                                                 </div>
                                                 <ul class="stars">

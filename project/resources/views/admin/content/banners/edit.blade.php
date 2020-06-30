@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên </label>
                     <div class="col-sm-8">
-                        <input type="text" name="name" class="form-control1" id="focusedinput" value="{{$banner->name}}" placeholder="Default Input">
+                        <input type="text" name="name" class="form-control" id="focusedinput" value="{{$banner->name}}" placeholder="Default Input">
                     </div>
                     <div class="col-sm-2">
                         <p class="help-block">Your help text!</p>
@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Link</label>
                     <div class="col-sm-8">
-                        <input type="text" name="link" class="form-control1" value ="{{$banner->link}}" id="focusedinput" placeholder="Default Input">
+                        <input type="text" name="link" class="form-control" value ="{{$banner->link}}" id="focusedinput" placeholder="Default Input">
                     </div>
                     <div class="col-sm-2">
                         <p class="help-block">Your help text!</p>
@@ -91,7 +91,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var domain = "http://localhost/project_foods/project/public/laravel-filemanager";
+            var domain = "http://project-foods.local/laravel-filemanager";
             $('.lfm-btn').filemanager('image', {prefix: domain});
         })
     </script>

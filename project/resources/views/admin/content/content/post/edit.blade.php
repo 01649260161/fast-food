@@ -93,7 +93,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var domain = "http://localhost/project_foods/project/public/laravel-filemanager";
+            var domain = "http://project-foods.local/laravel-filemanager";
             $('.lfm-btn').filemanager('image', {prefix: domain});
         })
     </script>

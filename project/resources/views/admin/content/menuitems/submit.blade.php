@@ -23,14 +23,14 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên</label>
                     <div class="col-sm-8">
-                        <input type="text" name="name" value="{{ old('name') }}" class="form-control1" id="focusedinput" placeholder="Default Input">
+                        <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="focusedinput" placeholder="Default Input">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Sắp xếp</label>
                     <div class="col-sm-8">
-                        <input type="text" name="sort" value="{{ old('sort') }}" class="form-control1" id="focusedinput" placeholder="Nhập thứ tự sắp xếp">
+                        <input type="text" name="sort" value="{{ old('sort') }}" class="form-control" id="focusedinput" placeholder="Nhập thứ tự sắp xếp">
                     </div>
                 </div>
 
@@ -121,14 +121,14 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Final Link</label>
                     <div class="col-sm-8">
-                        <input type="text" name="link" readonly value="{{ old('link') }}" class="form-control1" id="focusedinput" placeholder="Auto fill link">
+                        <input type="text" name="link" readonly value="{{ old('link') }}" class="form-control" id="focusedinput" placeholder="Auto fill link">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Icon</label>
                     <div class="col-sm-8">
-                        <input type="text" name="icon" value="{{ old('icon') }}" class="form-control1" id="focusedinput" placeholder="EX: fa fa-shop">
+                        <input type="text" name="icon" value="{{ old('icon') }}" class="form-control" id="focusedinput" placeholder="EX: fa fa-shop">
                     </div>
                 </div>
 

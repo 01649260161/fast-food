@@ -3,7 +3,7 @@
     Quản Trị Trang
 @endsection
 @section('content')
-    <h1 style="padding-top: 100px">Thêm Mới Banner</h1>
+    <h1 style="padding-top: 100px">Thêm Mới ảnh nền</h1>
     <div class="row">
         <div class="form-three widget-shadow">
             @if ($errors->any())
@@ -18,9 +18,9 @@
             <form class="form-horizontal" name="category" action="{{ url('admin/banners') }}" method="post">
                 @csrf
                 <div class="form-group">
-                    <label for="focusedinput" class="col-sm-2 control-label">Tên Sản Phẩm</label>
+                    <label for="focusedinput" class="col-sm-2 control-label">Tên ảnh nền</label>
                     <div class="col-sm-8">
-                        <input type="text" name="name" class="form-control1" value ="{{old("name")}}" id="focusedinput" placeholder="Default Input">
+                        <input type="text" name="name" class="form-control" value ="{{old("name")}}" id="focusedinput" placeholder="Default Input">
                     </div>
                     <div class="col-sm-2">
                         <p class="help-block">Your help text!</p>
@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Link</label>
                     <div class="col-sm-8">
-                        <input type="text" name="link" class="form-control1" value ="{{old("link")}}" id="focusedinput" placeholder="Default Input">
+                        <input type="text" name="link" class="form-control" value ="{{old("link")}}" id="focusedinput" placeholder="Default Input">
                     </div>
                     <div class="col-sm-2">
                         <p class="help-block">Your help text!</p>
@@ -87,7 +87,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var domain = "http://localhost/project_foods/project/public/laravel-filemanager";
+            var domain = "http://project-foods.local/laravel-filemanager";
             $('.lfm-btn').filemanager('image', {prefix: domain});
         })
     </script>

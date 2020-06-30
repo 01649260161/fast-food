@@ -5,7 +5,7 @@
 @section('content')
     <h1 style="padding-top: 100px">Quản Trị Khách Hàng</h1>
     <div style="margin: 20px 0">
-        <a href="{{  url('admin/shop/customer/create') }}" class="btn btn-success">Thêm Admin</a>
+        <a href="{{  url('admin/shop/customer/create') }}" class="btn btn-success">Thêm khách hàng</a>
     </div>
     <div class="tables">
         <div class="table table-hover table-dark">
@@ -27,8 +27,8 @@
                         <td>{{$customer->name}}</td>
                         <td>{{$customer->email}}</td>
                         <td>
-                            <a href="{{ url('admin/users/'.$customer->id.'/edit') }}" class="btn btn-warning">Sửa</a>
-                            <a href="{{ url('admin/users/'.$customer->id.'/delete') }}" class="btn btn-danger">Xóa</a>
+                            <a href="{{ url('admin/shop/customer/'.$customer->id.'/edit') }}" class="btn btn-warning">Sửa</a>
+                            <a href="{{ url('admin/shop/customer/'.$customer->id.'/delete') }}" class="btn btn-danger">Xóa</a>
                         </td>
 
                     </tr>

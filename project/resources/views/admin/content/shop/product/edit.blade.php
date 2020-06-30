@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên sản phẩm</label>
                     <div class="col-sm-8">
-                        <input type="text" name="name" class="form-control1" id="focusedinput" value="{{ $product->name }}" placeholder="Default Input">
+                        <input type="text" name="name" class="form-control" id="focusedinput" value="{{ $product->name }}" placeholder="Default Input">
                     </div>
                 </div>
                 <div class="form-group">
@@ -41,7 +41,7 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Slug</label>
                     <div class="col-sm-8">
-                        <input type="text" name="slug" class="form-control1" id="focusedinput" value="{{ $product->slug }}" placeholder="Default Input">
+                        <input type="text" name="slug" class="form-control" id="focusedinput" value="{{ $product->slug }}" placeholder="Default Input">
                     </div>
                 </div>
 
@@ -89,26 +89,26 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Giá niêm yết</label>
                     <div class="col-sm-8">
-                        <input type="text" name="priceCore" class="form-control1" id="focusedinput" value="{{ $product->priceCore }}" placeholder="Default Input">
+                        <input type="text" name="priceCore" class="form-control" id="focusedinput" value="{{ $product->priceCore }}" placeholder="Default Input">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Giá bán</label>
                     <div class="col-sm-8">
-                        <input type="text" name="priceSale" class="form-control1" id="focusedinput" value="{{ $product->priceSale }}" placeholder="Default Input">
+                        <input type="text" name="priceSale" class="form-control" id="focusedinput" value="{{ $product->priceSale }}" placeholder="Default Input">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tồn kho</label>
                     <div class="col-sm-8">
-                        <input type="text" name="stock" class="form-control1" id="focusedinput" value="{{ $product->stock }}" placeholder="Default Input">
+                        <input type="text" name="stock" class="form-control" id="focusedinput" value="{{ $product->stock }}" placeholder="Default Input">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Thông Tin Vận Chuyển</label>
                     <div class="col-sm-8">
-                        <input type="text" name="ship_info" class="form-control1" id="focusedinput" value="{{ $product->ship_info }}" placeholder="Default Input">
+                        <input type="text" name="ship_info" class="form-control" id="focusedinput" value="{{ $product->ship_info }}" placeholder="Default Input">
                     </div>
                 </div>
 
@@ -157,7 +157,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var domain = "http://localhost/project_foods/project/public/laravel-filemanager";
+            var domain = "http://project-foods.local/laravel-filemanager";
             $('#lfm').filemanager('image', {prefix: domain});
 
             $('#plus-image').on('click',function (e) {
@@ -190,7 +190,7 @@
                 var box =$(this).closest('.form-group');
                 $(html).insertBefore(box);
 
-                var domain = "http://localhost/project_foods/project/public/laravel-filemanager";
+                var domain = "http://project-foods.local/laravel-filemanager";
                 $('.lfm-btn').filemanager('image', {prefix: domain});
             });
             $(document).on('click','.remove-image',function (e) {

@@ -148,7 +148,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var domain = "http://localhost/project_foods/project/public/laravel-filemanager";
+            var domain = "http://project-foods.local/laravel-filemanager";
             $('#lfm').filemanager('image', {prefix: domain});
 
             $('#plus-image').on('click',function (e) {
@@ -181,7 +181,7 @@
                 var box =$(this).closest('.form-group');
                 $(html).insertBefore(box);
 
-                var domain = "http://localhost/project_foods/project/public/laravel-filemanager";
+                var domain = "http://project-foods.local/laravel-filemanager";
                 $('.lfm-btn').filemanager('image', {prefix: domain});
             });
             $(document).on('click','.remove-image',function (e) {
